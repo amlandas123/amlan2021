@@ -3,12 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo 'Hello World'
-        timeout(time: 1, unit: 'MINUTES') {
-          sleep 5
-          retry(count: 100)
-        }
-
+        echo '\'echo "Hello World"\''
       }
     }
 
