@@ -8,6 +8,7 @@ pipeline {
                     echo "Multiline shell steps work too"
                     ls -lah
                 \'\'\''''
+        echo 'echo "Hello World"'
       }
     }
 
