@@ -1,0 +1,37 @@
+[?1049h[?1h=[?2004h[1;41r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[41;1H"helloworld-cf-template.py" 82L, 1896C[1;13HFromPort=ApplicationPort,[2;13HToPort=ApplicationPort,[3;13HCidrIp=[31m"0.0.0.0/0"[m,[4;9H),
+    ],
+))
+
+ud = Base64(Join([31m'[m[35m\n[m[31m'[m, [
+    [31m"#!/bin/bash"[m,
+    [31m"sudo yum install --enablerepo=epel -y nodejs"[m,
+    [31m"wget http://bit.ly/2vESNuc -O /home/ec2-user/helloworld.js"[m,
+    [31m"wget http://bit.ly/2vVvT18 -O /etc/init/helloworld.conf"[m,
+    [31m"start helloworld"[m
+]))
+
+t.add_resource(ec2.Instance(
+    [31m"instance"[m,
+    ImageId=[31m"ami-cfe4b2b0"[m,
+    InstanceType=[31m"t2.micro"[m,
+    SecurityGroups=[Ref([31m"SecurityGroup"[m)],
+    KeyName=Ref([31m"KeyPair"[m),
+    UserData=ud,
+))
+
+t.add_output(Output(
+    [31m"InstancePublicIp"[m,
+    Description=[31m"Public IP of our instance."[m,
+    Value=GetAtt([31m"instance"[m, [31m"PublicIp"[m),
+))
+
+t.add_output(Output(
+    [31m"WebUrl"[m,
+    Description=[31m"Application endpoint"[m,
+    Value=Join([31m""[m, [[35;9H[31m"http://"[m, GetAtt([31m"instance"[m, [31m"PublicDnsName"[m),[36;9H[31m":"[m, ApplicationPort
+    ]),
+))
+
+[36mprint[m t.to_json()[41;155H79,7[10CBot[37;7H[?25h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[?2004l[?2004h[41;1H[?2004l[?2004l[?1l>[?1049lVim: Error reading input, exiting...
+Vim: Finished.
+[41;1H[23;2t[23;1t
