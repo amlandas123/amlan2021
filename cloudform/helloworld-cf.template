@@ -63,11 +63,11 @@
                 "ImageId": "ami-40142d25",
                 "InstanceType": "t2.micro",
                 "KeyName": {
-                    "Ref": "Amlan_key"
+                    "Ref": "KeyPair"
                 },
                 "SecurityGroups": [
                     {
-                        "Ref": "Amlan_CLI-sg"
+                        "Ref": "SecurityGroup"
                     }
                 ],
                 "UserData": {
