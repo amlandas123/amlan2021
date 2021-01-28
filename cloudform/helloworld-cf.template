@@ -60,14 +60,14 @@
         },
         "instance": {
             "Properties": {
-                "ImageId": "ami-40142d25",
+                "ImageId": "ami-cfe4b2b0",
                 "InstanceType": "t2.micro",
                 "KeyName": {
-                    "Ref": "Amlan_key"
+                    "Ref": "KeyPair"
                 },
                 "SecurityGroups": [
                     {
-                        "Ref": "Amlan_CLI-sg"
+                        "Ref": "SecurityGroup"
                     }
                 ],
                 "UserData": {
