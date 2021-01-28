@@ -60,7 +60,7 @@
         },
         "instance": {
             "Properties": {
-                "ImageId": "ami-40142d25",
+                "ImageId": "ami-cfe4b2b0",
                 "InstanceType": "t2.micro",
                 "KeyName": {
                     "Ref": "KeyPair"
